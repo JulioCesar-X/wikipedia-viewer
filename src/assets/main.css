@@ -154,14 +154,14 @@ body {
 }
 
 .list-group-item:hover {
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--hover-color);
   transform: scale(1.03);
 }
 
 /* 🎯 Links & Icons */
 .list-group-item a {
   text-decoration: none;
-  color: var(--link-color);
+  color: var(--primary-color);
   font-weight: bold;
   display: flex;
   align-items: center;
