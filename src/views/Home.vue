@@ -2,7 +2,7 @@
   <div class="home-container">
     <!-- Hero Section -->
     <div :class="['hero', { shrink: showResults }]">
-      <h1>Wikipedia Viewer</h1>
+      <h1 class="hero">Wikipedia Viewer</h1>
       <p class="lead">Search for articles or explore random topics.</p>
     </div>
 
@@ -72,14 +72,11 @@ export default {
           this.searchResults = response.data.query.search;
           this.showResults = true;
 
-          // Aguarda atualização do DOM e rola até os resultados
+          // Garante que os resultados sejam renderizados antes de rolar
           this.$nextTick(() => {
-            document.querySelectorAll('.list-group-item').forEach((el, index) => {
-              setTimeout(() => {
-                el.classList.add('show');
-              }, index * 100);
-            });
+            this.scrollToResults();
           });
+
         } else {
           this.searchResults = [];
           this.showResults = false;
@@ -91,7 +88,9 @@ export default {
     },
     scrollToResults() {
       if (this.$refs.resultsSection) {
-        this.$refs.resultsSection.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          this.$refs.resultsSection.scrollIntoView({ behavior: "smooth" });
+        }, 300); // Adiciona um pequeno delay para garantir a renderização completa
       }
     },
     scrollToTop() {
