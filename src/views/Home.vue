@@ -13,7 +13,7 @@
     </div>
 
     <!-- Search Results -->
-    <div v-if="searchResults.length" :class="['results-container', { show: searchResults.length > 0 },'hero']">
+    <div v-if="searchResults.length" :class="['results-container', { show: searchResults.length > 0 }, 'hero']"  ref="resultsSection">
       <h1 class="hero">Search Results</h1>
       <ul class="list-group">
         <li v-for="(result, index) in searchResults" :key="index" class="list-group-item" :class="{ show: showResults }">
@@ -27,6 +27,9 @@
         </li>
       </ul>
     </div>
+
+    <!-- Scroll to Top Button -->
+    <button v-show="showScrollButton" @click="scrollToTop" class="scroll-top-btn show">⬆</button>
   </div>
 </template>
 
@@ -40,8 +43,15 @@ export default {
   data() {
     return {
       searchResults: [],
-      showResults: false
+      showResults: false,
+      showScrollButton: false
     };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     async searchWiki(query) {
@@ -61,6 +71,8 @@ export default {
         if (response.data.query && response.data.query.search.length > 0) {
           this.searchResults = response.data.query.search;
           this.showResults = true;
+
+          // Aguarda atualização do DOM e rola até os resultados
           this.$nextTick(() => {
             document.querySelectorAll('.list-group-item').forEach((el, index) => {
               setTimeout(() => {
@@ -76,6 +88,17 @@ export default {
       } catch (error) {
         console.error('Error fetching Wikipedia results:', error);
       }
+    },
+    scrollToResults() {
+      if (this.$refs.resultsSection) {
+        this.$refs.resultsSection.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
+    handleScroll() {
+      this.showScrollButton = window.scrollY > 300;
     }
   }
 };
