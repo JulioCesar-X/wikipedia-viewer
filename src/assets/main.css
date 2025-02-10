@@ -1,0 +1,140 @@
+/* 🌍 General Styles */
+body {
+  font-family: var(--font-primary);
+  background: linear-gradient(to bottom, #1e3a8a 30%, #f4f4f4 100%);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* 🏡 Hero Section */
+.hero {
+  padding: 50px 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: white;
+  opacity: 0.8;
+}
+
+/* 🔍 Search Box */
+.search-box {
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 10px;
+  transition: var(--transition-speed);
+}
+
+.search-box input {
+  width: 80%;
+  padding: 12px;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  font-family: var(--font-secondary);
+  background: transparent;
+}
+
+.search-box button {
+  padding: 12px 20px;
+  background: var(--primary-color);
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition-speed);
+}
+
+.search-box button:hover {
+  background: var(--hover-color);
+  color: var(--primary-color);
+}
+
+/* 🎲 Random Button */
+.random-btn {
+  margin-top: 20px;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  font-size: 1rem;
+  padding: 12px 25px;
+  border-radius: var(--border-radius);
+  border: none;
+  font-weight: bold;
+  transition: var(--transition-speed);
+  cursor: pointer;
+}
+
+.random-btn:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+/* 📌 Results Section */
+.results-container {
+  margin-top: 40px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.results-container h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.list-group {
+  padding: 0;
+  text-align: left;
+}
+
+/* 🏆 Glassmorphism Effect */
+.list-group-item {
+  padding: 15px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 10px;
+  backdrop-filter: blur(10px);
+  transition: var(--transition-speed);
+}
+
+.list-group-item:hover {
+  background: var(--hover-color);
+  transform: translateY(-3px);
+}
+
+.list-group-item a {
+  text-decoration: none;
+  color: var(--link-color);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list-group-item a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* 🖼️ Wikipedia Icon */
+.wiki-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+}
