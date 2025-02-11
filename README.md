@@ -6,31 +6,6 @@
 - 🏃 **Smooth Animations** with AOS (Animate On Scroll).
 - ⚡ **Fast Loading** powered by Vite.
 
-## 📁 Project Structure
-
-```
-wikipedia-viewer/
-│── public/               # Static files
-│── src/
-│   ├── assets/           # Styles, images, and fonts
-│   ├── components/       # Reusable components
-│   │   ├── SearchBox.vue      # Search input field
-│   │   ├── SearchResults.vue  # Display search results
-│   │   ├── RandomArticle.vue  # Random article button
-│   ├── pages/
-│   │   ├── Home.vue           # Main home page
-│   ├── router/
-│   │   ├── index.js           # Vue Router setup
-│   ├── store/                 # State management (if needed)
-│   │   ├── index.js           # Pinia store
-│   ├── App.vue                # Root component
-│   ├── main.js                # Application entry point
-│── .env                       # Environment settings
-│── index.html                  # Main HTML file
-│── package.json                # Dependencies
-│── vite.config.js              # Vite configuration
-```
-
 ## 🎯 Installation & Usage
 
 ### 1️⃣ Clone the repository
